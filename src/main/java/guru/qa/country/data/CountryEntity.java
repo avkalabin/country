@@ -4,6 +4,7 @@ import guru.qa.country.model.Country;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.proxy.HibernateProxy;
 
@@ -15,14 +16,12 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class CountryEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue
     private UUID id;
-
-    public CountryEntity() {
-    }
 
     @Column(name = "country", nullable = false)
     private String countryName;

@@ -25,7 +25,7 @@ public class CountryController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Country addSCountry(@RequestBody Country country) {
+    public Country addCountry(@RequestBody Country country) {
         return countryService.saveCountry(country);
     }
 
