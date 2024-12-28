@@ -1,4 +1,4 @@
-package guru.qa.country.controller;
+package guru.qa.country.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
@@ -18,7 +18,9 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
+
+    public record ErrorResponse(String message) {
+    }
 }
 
-record ErrorResponse(String message) {
-}
+
