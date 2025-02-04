@@ -1,0 +1,45 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="country"
+           targetNamespace="country" elementFormDefault="qualified">
+    <!-- REQUEST TYPES -->
+    <xs:element name="GetAllCountriesRequest"/>
+    <xs:element name="AddCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country_name" type="xs:string"/>
+                <xs:element name="country_code" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="UpdateCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="new_name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- RESPONSE TYPES -->
+    <xs:element name="CountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CountryListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CountryList" type="tns:country" minOccurs="0" maxOccurs="unbounded">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <!-- CUSTOM TYPES -->
+    <xs:complexType name="country">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="country_name" type="xs:string"/>
+            <xs:element name="country_code" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
